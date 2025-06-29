@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    
+    var random = new Random();
+    var randomLetter = (char)random.Next('A', 'Z' + 1);
+    
+    var restaurants = new List<string>
+    {
+        "Ресторан 'Смак'",
+        "Кафе 'Аромат'",
+        "Піцерія 'Італія'",
+        "Ресторан 'Шинок'",
+        "Бар 'Паб'"
+    };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Поточний день року: @DateTime.Now.DayOfYear</p>
+    <p>Випадкова літера: @randomLetter</p>
+    
+    <h2>Список ресторанів</h2>
+    <ul class="restaurant-list">
+        @foreach (var restaurant in restaurants)
+        {
+            <li>@restaurant</li>
+        }
+    </ul>
+</div>
+
+<style>
+    .restaurant-list {
+        list-style-type: none;
+        padding: 0;
+        width: 50%;
+        margin: 0 auto;
+    }
+    
+    .restaurant-list li {
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    .restaurant-list li:hover {
+        background-color: #e9ecef;
+    }
+</style>

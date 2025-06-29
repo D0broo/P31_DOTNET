@@ -1,0 +1,42 @@
+﻿@page
+@model WebApplication1.Pages.Countries
+@{
+    ViewData["Title"] = "Країни";
+    
+    var countries = new List<string>
+    {
+        "Україна",
+        "Польща",
+        "Німеччина",
+        "Франція",
+        "Італія",
+        "Іспанія"
+    };
+}
+
+<h1>Інформація про країни</h1>
+
+<ul class="country-list">
+    @foreach (var country in countries)
+    {
+        <li>@country</li>
+    }
+</ul>
+
+<style>
+    .country-list {
+        list-style-type: square;
+        padding-left: 20px;
+    }
+    
+    .country-list li {
+        padding: 8px;
+        margin: 5px 0;
+        color: #2c3e50;
+        font-size: 1.1em;
+    }
+    
+    .country-list li:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+</style>
